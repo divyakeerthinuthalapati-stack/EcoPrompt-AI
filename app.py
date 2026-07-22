@@ -14,7 +14,7 @@ if not api_key:
 
 genai.configure(api_key=api_key)
 
-model = genai.GenerativeModel("gemini-1.5-flash")
+model = genai.GenerativeModel("gemini-2.5-flash")
 
 
 @app.route("/")
@@ -26,15 +26,20 @@ def home():
 def generate():
     try:
         data = request.get_json()
+
+        if not data or "prompt" not in data:
+            return jsonify({"error": "Prompt missing"}), 400
+
         user_prompt = data["prompt"]
 
         print("USER PROMPT:", user_prompt)
 
         print("Calling Gemini...")
+
         response = model.generate_content(user_prompt)
+
         print("Gemini finished")
-        request_options={"timeout": 60}
-        
+
         print("GEMINI RESPONSE:", response.text)
 
         return jsonify({
@@ -43,7 +48,9 @@ def generate():
 
     except Exception as e:
         print("ERROR:", e)
-        return jsonify({"error":str(e)}),500
+        return jsonify({
+            "error": str(e)
+        }), 500
 
 
 if __name__ == "__main__":
