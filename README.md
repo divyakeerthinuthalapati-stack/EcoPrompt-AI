@@ -29,6 +29,6 @@ cd EcoPrompt-AI
 pip install -r requirements.txt 
 
 GEMINI_API_KEY=AQ.Ab8RN6KlCHeSpJyR5kiNTI-lo4dKOG8itKqHaAkIQPzvhI53cQ
-
+http://127.0.0.1:10000
 python app.py 
 https://127.0.0.1:5000
