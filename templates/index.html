@@ -1,0 +1,113 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+    content="width=device-width,initial-scale=1.0">
+    <title>EcoPrompt AI</title>
+    <link rel="stylesheet"
+    href="{{url_for('static', filename='css/style.css')}}"> 
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            EcoPrompt AI
+        </div> 
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li> 
+            <li><a href="#optimizer">Prompt Optimizer</a></li> 
+            <li><a href="#dashboard">Sustainability</a></li>
+            <li><a href="#about">About</a></li>
+        </ul>
+    </nav>
+    <section class="hero">
+        <h1>🌱 EcoPrompt AI</h1>
+        <h2>Smarter AI. Greener Earth.</h2>
+        <p class="tagline">
+            Optimize smarter. Reduce AI energy. Protect the planet.
+        </p>
+        <div class="buttons">
+    <button id="try-btn" onclick="document.getElementById('optimizer').scrollIntoView({behavior:'smooth'})">
+        Try Now
+    </button>
+
+    <button onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    Learn More
+</button>
+</div>
+    </section>
+    <section id="optimizer" class="optimizer">
+        <h2>AI Prompt Optimizer</h2> 
+        <p>Enter your AI prompt below and let AI optimize it for better efficiency and lower environmental impact.</p> 
+        <form id="promptForm">
+            <textarea name="prompt" placeholder="Example: Write a detailed essay about climate change with examoles..." required></textarea>
+            <br>
+            <button type="button" class="optimize-btn">
+                Optimize & Generate
+            </button> 
+            <div id="result" class="result-box" style="display:none;">
+                <h2 id="dashboard">🌍 Sustainability Dashboard</h2>
+
+                <div class="dashboard">
+                    <div class="card">
+                        <h3>Eco Score</h3> 
+                        <h1 id="ecoScore"></h1>
+                    </div>
+                    <div class="card">
+                        <h3>Energy Saved</h3> 
+                        <h1 id="energy"></h1>
+                    </div>
+                    <div class="card">
+                        <h3>CO2 Reduction</h3>
+                        <h1 id="co2"></h1>
+                    </div>
+                    <div class="card">
+                        <h3>Rating</h3> 
+                        <h1 id="rating"></h1>
+                    </div>
+                </div>
+            
+            <div class="result-section">
+                <h2>✨ Prompt Comparison</h2>
+                <div class="compare-box">
+                    <div class="compare-card">
+                        <h3>Original Prompt</h3>
+                        <p id="originalPrompt"></p>
+            </div>
+
+            <div class="compare-card">
+                <h3>Optimized Prompt</h3>
+                <p id="optimizedPrompt"></p>
+            </div>
+        </div>
+    </div>
+            <div class="result-section">
+                <h2>🤖 AI Response</h2>
+                <p id="aiResponse"></p>
+            </div>
+            <div class="result-section">
+
+<h2>🌱 Why is this greener?</h2>
+<ul id="tips">
+<li>✅ Removed unnecessary words from the prompt.</li>
+<li>✅ Improved prompt clarity and structure.</li>
+<li>✅ Reduced estimated token usage.</li>
+<li>✅ Lower AI computation means lower energy consumption.</li>
+<li>✅ Generates focused responses with fewer unnecessary examples.</li>
+</ul>
+</div>
+            </div>
+        </form>
+    </section>
+    <section id="about" class="about">
+    <h2>🌱 About EcoPrompt AI</h2>
+    <p>
+        EcoPrompt AI is a smart sustainability-focused AI assistant designed to reduce unnecessary AI computation by optimizing user prompts before generating responses. By making prompts shorter, clearer, and more efficient, it helps save computational resources while maintaining high-quality AI results.
+    </p>
+    <p>
+        Our mission is simple: <strong>Smarter Prompts. Greener Future.</strong> Every optimized prompt contributes toward reducing energy consumption and promoting responsible AI usage. Together, we can make technology more efficient and environmentally friendly.
+    </p>
+</section>
+<script src="{{url_for('static',filename='js/script.js')}}"></script>
+</body>
+</html>
