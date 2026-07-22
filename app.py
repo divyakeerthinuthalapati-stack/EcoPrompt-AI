@@ -21,6 +21,7 @@ model = genai.GenerativeModel("gemini-1.5-flash")
 def home():
     return render_template("index.html")
 
+
 @app.route("/generate", methods=["POST"])
 def generate():
     try:
@@ -39,7 +40,9 @@ def generate():
 
     except Exception as e:
         print("ERROR:", e)
-        
+        return jsonify({"error":str(e)}),500
+
+
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port, debug=False)
