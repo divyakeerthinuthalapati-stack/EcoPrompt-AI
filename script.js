@@ -28,11 +28,21 @@ window.onload = function () {
     const data = await response.json();
     console.log(data);
 
-    document.getElementById("optimizedPrompt").innerHTML =
-    data.optimizedPrompt.replace(/\n/g, "<br>");
+    let formattedPrompt = data.optimizedPrompt;
 
-    document.getElementById("aiResponse").innerHTML =
-    data.response.replace(/\n/g, "<br>");
+formattedPrompt = formattedPrompt.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+formattedPrompt = formattedPrompt.replace(/\n/g, "<br>");
+
+document.getElementById("optimizedPrompt").innerHTML = formattedPrompt;
+
+    let formattedResponse = data.response;
+
+formattedResponse = formattedResponse.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+formattedResponse = formattedResponse.replace(/\n/g, "<br>");
+
+document.getElementById("aiResponse").innerHTML = formattedResponse;
 
     document.getElementById("ecoScore").textContent =
     data.ecoScore + "/100";

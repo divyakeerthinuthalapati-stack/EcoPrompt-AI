@@ -40,12 +40,22 @@ You are EcoPrompt AI.
 Perform BOTH tasks in ONE response.
 
 Task 1:
-Rewrite the user's prompt to make it shorter, clearer and energy-efficient.
+Rewrite the user's prompt to make it shorter, clearer, and energy-efficient.
 Reduce unnecessary words.
 If many examples are requested, limit to 3-5 examples.
 
 Task 2:
 Answer ONLY the optimized prompt.
+
+Formatting Rules:
+- Do NOT use Markdown.
+- Do NOT use *, **, #, _, or any Markdown symbols.
+- Use plain text only.
+- Use simple headings.
+- Leave one blank line between sections.
+- Use numbered lists (1., 2., 3.) when needed.
+- Do not use bullet symbols like * or -.
+- Make the answer clean, professional, and easy to read.
 
 Return EXACTLY in this format:
 
@@ -132,4 +142,5 @@ User Prompt:
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=False)
